@@ -1,7 +1,11 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  images: {
+    domains: ['fakestoreapi.com', 'your-other-image-domains.com', 'lh3.googleusercontent.com','https://authjs.dev/img/providers/google.svg'],  },
+  experimental: {
+   
+  },
 };
 
-export default nextConfig;
+module.exports = nextConfig;
