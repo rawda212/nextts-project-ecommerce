@@ -1,4 +1,3 @@
-// components/ProductSection.tsx
 import { Product } from "@/types/products";
 import Card from "./card";
 

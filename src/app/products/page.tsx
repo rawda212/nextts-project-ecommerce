@@ -54,14 +54,14 @@
 //     </div>
 //   );
 // }
-"use client";
+"use client"; 
 import { useEffect } from "react";
 import { useAppDispatch, useAppSelector } from "@/Redux/hooks";
 import { fetchedAllProducts } from "@/Redux/slices/productsSlice";
 import Slider from "@/components/Slider";
 import { filterProductsByCategory } from "@/utils/helpers";
 import ProductsSection from "@/components/ProductsSection";
-import { Product } from "@/types/products"; 
+import { Product } from "@/types/products";
 
 export default function HomePage() {
   const dispatch = useAppDispatch();
@@ -71,7 +71,7 @@ export default function HomePage() {
     dispatch(fetchedAllProducts());
   }, [dispatch]);
 
-  const sliderImages = products.slice(0, 3).map((product: Product) => product.image); 
+  const sliderImages = products.slice(0, 3).map((product: Product) => product.image);
 
   const men = filterProductsByCategory(products, "men's clothing");
   const women = filterProductsByCategory(products, "women's clothing");
@@ -83,9 +83,9 @@ export default function HomePage() {
       <h1 className="text-3xl font-bold mb-6">Welcome to Our Store 🛍️</h1>
       <Slider images={sliderImages} />
 
-      <ProductsSection title=" Men's Clothing" products={men} />
-      <ProductsSection title=" Women's Clothing" products={women} />
-      <ProductsSection title=" Jewelery" products={jewelery} />
+      <ProductsSection title="Men's Clothing" products={men} />
+      <ProductsSection title="Women's Clothing" products={women} />
+      <ProductsSection title="Jewelery" products={jewelery} />
       <ProductsSection title="Electronics" products={electronics} />
     </div>
   );
