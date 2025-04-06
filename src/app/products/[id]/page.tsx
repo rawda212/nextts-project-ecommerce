@@ -1,5 +1,5 @@
 "use client";
-import { fetchOneProduct } from "@/Redux/slices/ProductsSlice";
+import { fetchOneProduct } from "@/Redux/slices/productsSlice"; 
 import { useAppDispatch, useAppSelector } from "@/Redux/hooks";
 import { useEffect } from "react";
 import Image from "next/image";
