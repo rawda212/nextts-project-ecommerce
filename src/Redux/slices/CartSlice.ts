@@ -21,7 +21,7 @@ const loadState = (): CartState | undefined => {
   try {
     const serializedState = localStorage.getItem("cart");
     return serializedState ? JSON.parse(serializedState) : undefined;
-  } catch (err) {
+  } catch  {
     return undefined;
   }
 };

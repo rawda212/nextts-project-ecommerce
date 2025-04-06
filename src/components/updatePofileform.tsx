@@ -1,8 +1,8 @@
 
 "use client";
 import { useState } from "react";
-import Image from "next/image";
-import { CountryDropdown } from "./CountryDropdown";
+// import Image from "next/image";
+// import { CountryDropdown } from "./CountryDropdown";
 
 export default function UpdateProfileForm() {
     const [formData, setFormData] = useState({
@@ -12,11 +12,11 @@ export default function UpdateProfileForm() {
       country: "",
     });
     const [avatar, setAvatar] = useState<File | null>(null);
-    const [avatarPreview, setAvatarPreview] = useState<string | null>(null);
+    // const [avatarPreview, setAvatarPreview] = useState<string | null>(null);
     const [errors, setErrors] = useState<{ name?: string; email?: string; password?: string }>({});
   
     const validateForm = () => {
-      let newErrors: typeof errors = {};
+      const newErrors: typeof errors = {};
       if (formData.name.length < 3) newErrors.name = "Name must be at least 3 characters";
       if (!formData.email.includes("@")) newErrors.email = "Invalid email format";
       if (formData.password && formData.password.length < 6) newErrors.password = "Password must be at least 6 characters";
@@ -28,17 +28,17 @@ export default function UpdateProfileForm() {
       setFormData({ ...formData, [e.target.name]: e.target.value });
     };
   
-    const handleAvatarChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-      const file = event.target.files?.[0];
-      if (file) {
-        setAvatar(file);
-        setAvatarPreview(URL.createObjectURL(file));
-      }
-    };
+    // const handleAvatarChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    //   const file = event.target.files?.[0];
+    //   if (file) {
+    //     setAvatar(file);
+    //     setAvatarPreview(URL.createObjectURL(file));
+    //   }
+    // };
   
-    const handleCountryChange = (value: string) => {
-      setFormData({ ...formData, country: value });
-    };
+    // const handleCountryChange = (value: string) => {
+    //   setFormData({ ...formData, country: value });
+    // };
   
     const handleSubmit = (e: React.FormEvent) => {
       e.preventDefault();

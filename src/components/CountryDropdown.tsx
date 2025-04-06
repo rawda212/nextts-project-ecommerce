@@ -1,16 +1,18 @@
 import { useState, useEffect } from "react";
 
+interface Country {
+  name: string;
+}
+
 export function CountryDropdown({ selected, onChange }: { selected: string; onChange: (val: string) => void }) {
   const [countries, setCountries] = useState<string[]>([]);
-  
+
   useEffect(() => {
     const fetchCountries = async () => {
       try {
         const res = await fetch("/api/countries");
-        // const res =await fetch ("/src/components/service/api/countary.ts")
-
-        const data = await res.json();
-        const countryNames = data.map((country: any) => country.name).sort();
+        const data: Country[] = await res.json();
+        const countryNames = data.map((country: Country) => country.name).sort();
         setCountries(countryNames);
       } catch (error) {
         console.error("Failed to fetch countries:", error);
@@ -21,9 +23,9 @@ export function CountryDropdown({ selected, onChange }: { selected: string; onCh
 
   return (
     <select
-      value={selected || ""}  
+      value={selected || ""}
       onChange={(e) => onChange(e.target.value)}
-      className="w-full p-3 border rounded-lg focus:outline-none focus:ring-2  focus:ring-blue-500"
+      className="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
     >
       <option className="text-black" value="">Select Country</option>
       {countries.length > 0 ? (
@@ -33,7 +35,7 @@ export function CountryDropdown({ selected, onChange }: { selected: string; onCh
           </option>
         ))
       ) : (
-        <option className="text-black" value="">Loading...</option>  
+        <option className="text-black" value="">Loading...</option>
       )}
     </select>
   );

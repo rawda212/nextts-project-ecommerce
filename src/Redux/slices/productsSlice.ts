@@ -41,7 +41,7 @@ export const fetchedAllProducts = createAsyncThunk<Product[], void>(
       const response = await axiosInstance.get<Product[]>("/products");
       console.log("Fetched Products:", response.data);
       return response.data;
-    } catch (error) {
+    } catch  {
       return thunkApi.rejectWithValue("error from thunk");
     }
   }

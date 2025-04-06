@@ -1,4 +1,3 @@
-// src/app/api/countries/route.ts
 
 export async function GET() {
     try {
@@ -8,7 +7,7 @@ export async function GET() {
         status: 200,
         headers: { "Content-Type": "application/json" },
       });
-    } catch (error) {
+    } catch  {
       return new Response(JSON.stringify({ error: "Failed to fetch countries" }), {
         status: 500,
       });

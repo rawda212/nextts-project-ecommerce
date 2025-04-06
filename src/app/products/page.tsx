@@ -7,7 +7,7 @@ import { filterByCategory, fetchedAllProducts } from "@/Redux/slices/productsSli
 
 export default function ProductsPage() {
   const dispatch = useAppDispatch();
-  const { products, isLoading, error, filteredProducts, selectedCategory } = useAppSelector((state) => state.products);
+  const {  isLoading, error, filteredProducts, selectedCategory } = useAppSelector((state) => state.products);
 
   useEffect(() => {
     dispatch(fetchedAllProducts());
@@ -34,8 +34,9 @@ export default function ProductsPage() {
           <option value="All">All Categories</option>
           <option value="electronics">Electronics</option>
           <option value="jewelery">Jewelery</option>
-          <option value="men's clothing">Men's Clothing</option>
-          <option value="women's clothing">Women's Clothing</option>
+          <option value="men's clothing">Men&#39;s Clothing</option>
+<option value="women's clothing">Women&#39;s Clothing</option>
+
         </select>
       </div>
 
