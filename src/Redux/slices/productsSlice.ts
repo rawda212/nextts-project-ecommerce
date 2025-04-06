@@ -53,7 +53,7 @@ export const fetchOneProduct = createAsyncThunk<Product, string | number>(
     try {
       const response = await axiosInstance.get<Product>(`/products/${id}`);
       return response.data;
-    } catch (error) {
+    } catch  {
       return thunkApi.rejectWithValue("error from thunk");
     }
   }
@@ -71,7 +71,7 @@ export const addProduct = createAsyncThunk<Product, Partial<Product>>(
       const response = await axiosInstance.post<Product>("/products", productWithId);
       console.log("✅ Product added successfully:", response.data);
       return response.data;
-    } catch (error) {
+    } catch  {
       return thunkApi.rejectWithValue("error from Add thunk");
     }
   }
@@ -86,7 +86,7 @@ export const deleteProduct = createAsyncThunk<string | number, string | number>(
       const response = await axiosInstance.delete(`/products/${idString}`);
       console.log("✅ Deleted successfully:", response.data);
       return productId; 
-    } catch (error) {
+    } catch  {
       console.error("❌ Error deleting product:", error);
       return thunkApi.rejectWithValue("error from delete thunk");
     }

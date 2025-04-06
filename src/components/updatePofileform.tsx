@@ -1,4 +1,3 @@
-
 "use client";
 import { useState } from "react";
 // import Image from "next/image";
@@ -11,7 +10,7 @@ export default function UpdateProfileForm() {
       password: "",
       country: "",
     });
-    const [avatar, setAvatar] = useState<File | null>(null);
+    // const [avatar, setAvatar] = useState<File | null>(null);
     // const [avatarPreview, setAvatarPreview] = useState<string | null>(null);
     const [errors, setErrors] = useState<{ name?: string; email?: string; password?: string }>({});
   
@@ -43,7 +42,7 @@ export default function UpdateProfileForm() {
     const handleSubmit = (e: React.FormEvent) => {
       e.preventDefault();
       if (validateForm()) {
-        console.log("Updated Profile:", formData, avatar);
+        console.log("Updated Profile:", formData);
       }
     };
   
