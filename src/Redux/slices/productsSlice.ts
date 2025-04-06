@@ -87,7 +87,7 @@ export const deleteProduct = createAsyncThunk<string | number, string | number>(
       console.log("✅ Deleted successfully:", response.data);
       return productId; 
     } catch  {
-      console.error("❌ Error deleting product:", error);
+      console.error("❌ Error deleting product:",);
       return thunkApi.rejectWithValue("error from delete thunk");
     }
   }
